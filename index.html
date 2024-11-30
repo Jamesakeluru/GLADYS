@@ -9,22 +9,22 @@
       margin: 0;
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: pink;
+      background-color: rgb(64, 67, 247);
       overflow-x: hidden;
     }
 
     #surprise-button {
       padding: 15px 30px;
       font-size: 20px;
-      color: #fff;
-      background: #ff69b4;
+      color: #050000;
+      background: #08d44ce8;
       border: none;
       border-radius: 10px;
       cursor: pointer;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-80%, -50%);
     }
 
     #surprise {
@@ -56,13 +56,23 @@
       margin: 20px auto;
     }
 
+    /* Styling for image container and video */
+    .image-container, video {
+      border: 5px groove #f01e87; /* Pink border */
+      border-radius: 15px; /* Rounded corners */
+      padding: 5px; /* Space between content and border */
+      background-color: #dbe9e9; /* White background for better visibility */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    }
+
     /* Styling for image container */
     .image-container {
-      transition: transform 0.5s ease;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
     .image-container:hover {
       transform: scale(1.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
     }
 
     img {
@@ -100,7 +110,7 @@
 
     .emoji {
       position: absolute;
-      font-size: 35px;
+      font-size: 50px;
       animation: fall linear infinite;
     }
 
@@ -117,38 +127,58 @@
   </style>
 </head>
 <body>
-  <button id="surprise-button">Click Me for a Surprise!</button>
+  <button id="surprise-button"><b>Click Me!</b></button>
 
   <div id="surprise">
-    <h1>IT'S GOOD TO BE FRIENDS WITH A PROGRAMMER</h1>
+    <h1><b>IT'S GOOD TO BE FRIENDS WITH A PROGRAMMER</b></h1>
     
     <!-- Image Poster Section -->
     <div class="poster">
       <!-- Add all the images here -->
-      <div class="image-container">
+       <div class="image-container">
         <img src="erica1.jpg" alt="Image 1">
-      </div>
-      <div class="image-container">
-        <img src="erica2.jpg" alt="Image 2">
-      </div>
-      <div class="image-container">
-        <img src="erica3.jpg" alt="Image 3">
-      </div>
-      <div class="image-container">
-        <img src="erica4.jpg" alt="Image 4">
-      </div>
-      <div class="image-container">
-        <img src="erica5.jpg" alt="Image 5">
-      </div>
+       </div>
+       <div class="image-container">
+        <img src="erica11.jpg" alt="Image 2">
+       </div>
+       <div class="image-container">
+        <img src="erica22.jpg" alt="Image 3">
+       </div>
+       <div class="image-container">
+        <img src="erica33.jpg" alt="Image 4">
+       </div>
+        <div class="image-container">
+         <img src="erica5.jpg" alt="Image 5">
+       </div>
+       
+        <div class="image-container">
+         <img src="erica44.jpg" alt="Image 6">
+        </div>
+        <div class="image-container">
+         <img src="erica55.jpg" alt="Image 7">
+        </div> 
+        <div class="image-container">
+         <img src="erica66.jpg" alt="Image 8">
+        </div>
+        <div class="image-container">
+         <img src="erica77.jpg" alt="Image 9">
+        </div>
+        <div class="image-container">
+         <img src="erica88.jpg" alt="Image 10">
+        </div
+      >
     </div>
-    <h1>happy belated birthday Erica <br>It's your birthday today!</h1>
+    <h1>happy belated birthday, Erica <br>It's your birthday today!<br><i>Your smile brightens even the darkest moments</i> <br>
+    <i>May you celebrate many more years of love, laughter, and adventure</i><br>
+    <b>💖 HAPPY BIRTHDAY,WITH ALL MY LOVE 💖.</b>
+    </h1>
     
     <!-- Video Section -->
     <div class="videos">
       <!-- Add video elements here -->
       <video src="vid1.mp4" autoplay muted loop playsinline></video>
       <video src="vid2.mp4" autoplay muted loop playsinline></video>
-      <video src="vid3.mp4" autoplay muted loop playsinline></video>
+      <video src="vid11.mp4" autoplay muted loop playsinline></video>
       <video src="vid4.mp4" autoplay muted loop playsinline></video>
     </div>
     
@@ -160,7 +190,8 @@
     const surpriseDiv = document.getElementById('surprise');
     const emojiContainer = document.getElementById('emoji-container');
 
-    const emojis = ["🥳", "🌺", "🌹", "🍕", "🍭", "❤️", "💝", "💖"];
+    const emojis = ["💐", "🌹"," 🌺" ,"🌷",
+ "🎉","🥳", "🌺", "🌹", "🍕", "🍭", "❤️", "💝", "💖"];
 
     surpriseButton.addEventListener('click', () => {
       surpriseButton.style.display = 'none';
@@ -174,7 +205,7 @@
         emoji.className = 'emoji';
         emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
         emoji.style.left = Math.random() * 100 + 'vw';
-        emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
+        emoji.style.animationDuration = Math.random() * 4+ 3 + 's';
         emoji.style.fontSize = Math.random() * 20 + 20 + 'px';
         emojiContainer.appendChild(emoji);
 
