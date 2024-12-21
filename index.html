@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birthday Poster Surprise</title>
+  <title>Holiday Surprise</title>
   <style>
     body {
       margin: 0;
@@ -27,7 +27,7 @@
       transform: translate(-80%, -50%);
     }
 
-    #surprise {
+    #surprise, #notification {
       display: none;
       animation: fadeIn 2s ease-in-out;
     }
@@ -51,28 +51,26 @@
     .poster, .videos {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap; /* Allows wrapping to the next line if needed */
-      gap: 20px; /* Adds space between items */
+      flex-wrap: wrap; 
+      gap: 20px;
       margin: 20px auto;
     }
 
-    /* Styling for image container and video */
     .image-container, video {
-      border: 5px groove #f01e87; /* Pink border */
-      border-radius: 15px; /* Rounded corners */
-      padding: 5px; /* Space between content and border */
-      background-color: #dbe9e9; /* White background for better visibility */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+      border: 5px groove #f01e87;
+      border-radius: 15px;
+      padding: 5px;
+      background-color: #dbe9e9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* Styling for image container */
     .image-container {
       transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
     .image-container:hover {
       transform: scale(1.2);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     img {
@@ -81,7 +79,6 @@
       border-radius: 10px;
     }
 
-    /* Styling for video container */
     video {
       max-width: 300px;
       max-height: 200px;
@@ -89,12 +86,11 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
-    /* Media query to adjust video size on smaller screens */
     @media only screen and (max-width: 600px) {
       video {
         max-width: 100%;
         height: auto;
-        max-height: 180px; /* Adjust as needed */
+        max-height: 180px;
       }
     }
 
@@ -127,7 +123,8 @@
   </style>
 </head>
 <body>
-  <h1><b>I ALMOST FORGOT TODAY'S DATE IS 30<sup>TH </sup></b></h1>
+  <h1 id="date"><b>Today's Date: </b></h1>
+  <h1 id="notification"><b>Notification: </b></h1>
   <button id="surprise-button"><b>CLICK ME!</b></button>
 
   <div id="surprise">
@@ -135,7 +132,6 @@
     
     <!-- Image Poster Section -->
     <div class="poster">
-      <!-- Add all the images here -->
        <div class="image-container">
         <img src="erica1.jpg" alt="Image 1">
        </div>
@@ -148,35 +144,32 @@
        <div class="image-container">
         <img src="erica33.jpg" alt="Image 4">
        </div>
-        <div class="image-container">
-         <img src="erica5.jpg" alt="Image 5">
+       <div class="image-container">
+        <img src="erica5.jpg" alt="Image 5">
        </div>
-       
-        <div class="image-container">
-         <img src="erica44.jpg" alt="Image 6">
-        </div>
-        <div class="image-container">
-         <img src="erica55.jpg" alt="Image 7">
-        </div> 
-        <div class="image-container">
-         <img src="erica66.jpg" alt="Image 8">
-        </div>
-        <div class="image-container">
-         <img src="erica77.jpg" alt="Image 9">
-        </div>
-        <div class="image-container">
-         <img src="erica88.jpg" alt="Image 10">
-        </div
-      >
+       <div class="image-container">
+        <img src="erica44.jpg" alt="Image 6">
+       </div>
+       <div class="image-container">
+        <img src="erica55.jpg" alt="Image 7">
+       </div> 
+       <div class="image-container">
+        <img src="erica66.jpg" alt="Image 8">
+       </div>
+       <div class="image-container">
+        <img src="erica77.jpg" alt="Image 9">
+       </div>
+       <div class="image-container">
+        <img src="erica88.jpg" alt="Image 10">
+       </div>
     </div>
-    <h1>happy belated birthday, Erica <br>It's your birthday today!<br><i>Your smile brightens even the darkest moments</i> <br>
+
+    <h1>Happy belated birthday, Erica!<br>It's your birthday today!<br><i>Your smile brightens even the darkest moments</i> <br>
     <i>May you celebrate many more years of love, laughter, and adventure</i><br>
-    <b>💖 HAPPY BIRTHDAY,WITH ALL MY LOVE 💖.</b>
-    </h1>
+    <b>💖 HAPPY BIRTHDAY,WITH ALL MY LOVE 💖.</b></h1>
     
     <!-- Video Section -->
     <div class="videos">
-      <!-- Add video elements here -->
       <video src="vid1.mp4" autoplay muted loop playsinline></video>
       <video src="vid2.mp4" autoplay muted loop playsinline></video>
       <video src="vid11.mp4" autoplay muted loop playsinline></video>
@@ -190,9 +183,10 @@
     const surpriseButton = document.getElementById('surprise-button');
     const surpriseDiv = document.getElementById('surprise');
     const emojiContainer = document.getElementById('emoji-container');
+    const dateElement = document.getElementById('date');
+    const notificationElement = document.getElementById('notification');
 
-    const emojis = ["💐", "🌹"," 🌺" ,"🌷",
- "🎉","🥳", "🌺", "🌹", "🍕", "🍭", "❤️", "💝", "💖"];
+    const emojis = ["💐", "🌹"," 🌺" ,"🌷", "🎉","🥳", "🌺", "🌹", "🍕", "🍭", "❤️", "💝", "💖"];
 
     surpriseButton.addEventListener('click', () => {
       surpriseButton.style.display = 'none';
@@ -214,6 +208,39 @@
         setTimeout(() => emoji.remove(), 5000);
       }, 300);
     }
+
+    function displayHolidayNotification() {
+      const today = new Date();
+      const currentDate = today.toDateString();
+      const currentYear = today.getFullYear();
+
+      const christmas = new Date(`December 25, ${currentYear}`);
+      const newYear = new Date(`January 1, ${currentYear + 1}`);
+
+      const daysUntilChristmas = Math.ceil((christmas - today) / (1000 * 60 * 60 * 24));
+      const daysUntilNewYear = Math.ceil((newYear - today) / (1000 * 60 * 60 * 24));
+
+      dateElement.innerText = `Today's Date: ${currentDate}`;
+      let notificationMessage = '';
+
+      if (today.toDateString() === christmas.toDateString()) {
+        notificationMessage = "🎄 Merry Christmas! Enjoy your holiday surprise! 🎅";
+      } else if (today.toDateString() === newYear.toDateString()) {
+        notificationMessage = "🎆 Happy New Year! Celebrate with a special surprise! 🎉";
+      } else if (daysUntilChristmas > 0) {
+        notificationMessage = `There are ${daysUntilChristmas} days until Christmas! 🎄`;
+      } else if (daysUntilNewYear > 0) {
+        notificationMessage = `There are ${daysUntilNewYear} days until New Year! 🎆`;
+      } else {
+        notificationMessage = "The holidays have passed. Have a wonderful new year ahead!";
+      }
+
+      notificationElement.innerText = `Notification: ${notificationMessage}`;
+      notificationElement.style.display = 'block';
+    }
+
+    displayHolidayNotification();
   </script>
 </body>
 </html>
+
